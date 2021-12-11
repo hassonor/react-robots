@@ -2,6 +2,8 @@
 
 Adding PWA capabilities to a React app
 
+![Twitter](https://github.com/hassonor/react-robots/blob/master/pwa-ready.png)
+
 To run the project:
 
 1. Clone this repo
