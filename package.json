@@ -56,15 +56,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "rewrites": [
-    {
-      "source": "/robots.txt",
-      "destination": "/robots.txt"
-    },
-    {
-      "source": "**",
-      "destination": "/index.html"
-    }
-  ]
+  }
 }
