@@ -1,5 +1,5 @@
 {
-  "start_url": "/?source=pwa",
+  "start_url": "./index.html",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
