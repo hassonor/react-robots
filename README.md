@@ -2,6 +2,9 @@
 
 Adding PWA capabilities to a React app
 
+Results via Lighthouse Chrome Extension:
+https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en
+
 ![Twitter](https://github.com/hassonor/react-robots/blob/master/pwa_ready.png)
 
 To run the project:
