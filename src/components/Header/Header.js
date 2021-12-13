@@ -1,5 +1,5 @@
 import React from 'react';
-import CounterButton from './CounterButton/CounterButton';
+import CounterButton from '../CounterButton/CounterButton';
 
 //Functional Component
 const Header = React.memo(props => {
