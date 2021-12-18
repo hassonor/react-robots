@@ -1,7 +1,7 @@
-import React from 'react';
-import {shallow} from 'enzyme';
-import Header from './Header';
+import React from "react";
+import { shallow } from "enzyme";
+import Header from "./Header";
 
-it('expect to render Header Component', () => {
-    expect(shallow(<Header/>)).toMatchSnapshot();
+it("expect to render Header Component", () => {
+  expect(shallow(<Header />)).toMatchSnapshot();
 });

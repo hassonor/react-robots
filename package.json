@@ -54,7 +54,7 @@
     "test": "react-scripts test --env=jsdom",
     "coverage": "npm test -- --coverage --watchAll=false",
     "eject": "react-scripts eject",
-    "precommit": "pretty-quick --staged"
+    "precommit": "npx prettier --write ."
   },
   "eslintConfig": {
     "extends": [

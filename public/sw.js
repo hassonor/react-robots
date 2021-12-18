@@ -1,7 +1,7 @@
 //remember to increment the version # when you update the service worker
 const version = "1.00",
-    preCache = "PRECACHE-" + version,
-    cacheList = [ "/" ];
+  preCache = "PRECACHE-" + version,
+  cacheList = ["/"];
 
 /*
 create a list (array) of urls to pre-cache for your application
@@ -9,53 +9,39 @@ create a list (array) of urls to pre-cache for your application
 
 /*  Service Worker Event Handlers */
 
-self.addEventListener( "install", function ( event ) {
+self.addEventListener("install", function (event) {
+  console.log("Installing the service worker!");
 
-    console.log( "Installing the service worker!" );
+  self.skipWaiting();
 
-    self.skipWaiting();
+  caches.open(preCache).then((cache) => {
+    cache.addAll(cacheList);
+  });
+});
 
-    caches.open( preCache )
-        .then( cache => {
+self.addEventListener("activate", function (event) {
+  event.waitUntil(
+    //wholesale purge of previous version caches
+    caches.keys().then((cacheNames) => {
+      cacheNames.forEach((value) => {
+        if (value.indexOf(version) < 0) {
+          caches.delete(value);
+        }
+      });
 
-            cache.addAll( cacheList );
+      console.log("service worker activated");
 
-        } );
+      return;
+    })
+  );
+});
 
-} );
+self.addEventListener("fetch", function (event) {
+  event.respondWith(
+    fetch(event.request)
 
-self.addEventListener( "activate", function ( event ) {
-
-    event.waitUntil(
-
-        //wholesale purge of previous version caches
-        caches.keys().then( cacheNames => {
-            cacheNames.forEach( value => {
-
-                if ( value.indexOf( version ) < 0 ) {
-                    caches.delete( value );
-                }
-
-            } );
-
-            console.log( "service worker activated" );
-
-            return;
-
-        } )
-
-    );
-
-} );
-
-self.addEventListener( "fetch", function ( event ) {
-
-    event.respondWith(
-
-        fetch( event.request )
-
-        /* check the cache first, then hit the network */
-        /*
+    /* check the cache first, then hit the network */
+    /*
                 caches.match( event.request )
                 .then( function ( response ) {
 
@@ -66,10 +52,8 @@ self.addEventListener( "fetch", function ( event ) {
                     return fetch( event.request );
                 } )
         */
-    );
-
-} );
-
+  );
+});
 
 /* service worker resources
 

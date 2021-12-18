@@ -1,4 +1,4 @@
-# Robots React - PWA  https://react-robots.vercel.app/
+# Robots React - PWA https://react-robots.vercel.app/
 
 Adding PWA capabilities to a React app
 
@@ -19,4 +19,3 @@ To run the project:
 Enjoy!
 
 OR HASSON
-
